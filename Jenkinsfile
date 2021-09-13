@@ -9,7 +9,7 @@ pipeline {
                   script {
                       if("${applicationMAL}" =="Test1")
 		        {
-			    stage ('Test1_Bounce-Stop') {
+			    stage ("Test1_Bounce-Stop") {
 		                sshagent(credentials : ['tcopitv1']) {
                                     echo "----------Shutdown TCOP-GP on Test1----------"
                                     sh 'ssh -o StrictHostKeyChecking=no tcopitv1@suomt68i.dev.qintra.com ./Shutdown.sh'
@@ -18,7 +18,7 @@ pipeline {
 			    }   
                         }else if("${applicationMAL}" =="Test2")
                           {
-                            stage ('Test2_Bounce-Stop') {  
+                            stage ("Test2_Bounce-Stop") {  
                                 sshagent(credentials : ['tcopitv2']) {
                                    echo "----------Shutdown TCOP-GP on Test2----------"
                                    sh 'ssh -o StrictHostKeyChecking=no tcopitv2@suomt68i.dev.qintra.com ./Shutdown.sh'
@@ -27,7 +27,7 @@ pipeline {
                            }
                         }else if("${applicationMAL}" =="Test3")
                            {
-                            stage ('Test3_Bounce-Stop') {   
+                            stage ("Test3_Bounce-Stop") {   
                                  sshagent(credentials : ['tcopitv3']) {
                                     echo "----------Shutdown TCOP-GP on Test3----------"
                                     sh 'ssh -o StrictHostKeyChecking=no tcopitv3@suomt68i.dev.qintra.com ./Shutdown.sh'
@@ -36,7 +36,7 @@ pipeline {
                            }   
                         }else if("${applicationMAL}" =="E2e")
                            {
-                            stage ('E2e_Bounce-Stop') {   
+                            stage ("E2e_Bounce-Stop") {   
                                 sshagent(credentials : ['tcope2e']) {
                                    echo "----------Shutdown TCOP-GP on E2e----------"
                                    sh 'ssh -o StrictHostKeyChecking=no tcope2e@suomt68i.dev.qintra.com ./Shutdown.sh'
