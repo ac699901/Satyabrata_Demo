@@ -1,5 +1,8 @@
 pipeline {
-     agent any	
+     agent any
+     parameters{
+          choice(name: 'applicationMAL' , choices: ['Test1','Test2','Test3','E2e'])
+     }
        stages {
          stage ('Bounce-Stop') {
                steps{
